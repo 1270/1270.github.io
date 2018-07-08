@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://1270.github.io">
   <title>大型应用https的实践(二) - https原理 | 1270</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HTTTP协议，原本是明文传输，很容易受到中间者劫持，窥探，甚至篡改网页。中间者往往存在用户与真实服务之间的网络节点，例如 WIFI 热点，路由器，防火墙，反向代理，缓存服务器等。 HTTPS 协议提供了三个强大的功能来对抗上述的劫持行为：    内容加密。浏览器到百度服务器的内容都是以加密形式传输，中间者无法直接查看原始内容。  身份认证。保证用户访问的是百度服务，即使被 DNS 劫持到了第三方">
+  <meta name="description" content="HTTTP协议，原本是明文传输，很容易受到中间者劫持，窥探，甚至篡改网页。中间者往往存在用户与真实服务之间的网络节点，例如 WIFI 热点，路由器，防火墙，反向代理，缓存服务器等。 HTTPS 协议提供了三个强大的功能来对抗上述的劫持行为：    内容加密。浏览器到百度服务器的内容都是以加密形式传输，中间者无法直接查看原始内容。 身份认证。保证用户访问的是正常服务，即使被 DNS 劫持到了第三方站">
 <meta name="keywords" content="https,原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大型应用https的实践(二) - https原理">
 <meta property="og:url" content="http://1270.github.io/2018/07/08/https-use-2/index.html">
 <meta property="og:site_name" content="1270">
-<meta property="og:description" content="HTTTP协议，原本是明文传输，很容易受到中间者劫持，窥探，甚至篡改网页。中间者往往存在用户与真实服务之间的网络节点，例如 WIFI 热点，路由器，防火墙，反向代理，缓存服务器等。 HTTPS 协议提供了三个强大的功能来对抗上述的劫持行为：    内容加密。浏览器到百度服务器的内容都是以加密形式传输，中间者无法直接查看原始内容。  身份认证。保证用户访问的是百度服务，即使被 DNS 劫持到了第三方">
+<meta property="og:description" content="HTTTP协议，原本是明文传输，很容易受到中间者劫持，窥探，甚至篡改网页。中间者往往存在用户与真实服务之间的网络节点，例如 WIFI 热点，路由器，防火墙，反向代理，缓存服务器等。 HTTPS 协议提供了三个强大的功能来对抗上述的劫持行为：    内容加密。浏览器到百度服务器的内容都是以加密形式传输，中间者无法直接查看原始内容。 身份认证。保证用户访问的是正常服务，即使被 DNS 劫持到了第三方站">
 <meta property="og:image" content="http://1270.github.io/2018/07/08/https-use-2/1531068776567.jpg">
-<meta property="og:updated_time" content="2018-07-08T17:26:26.224Z">
+<meta property="og:updated_time" content="2018-07-08T17:35:23.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大型应用https的实践(二) - https原理">
-<meta name="twitter:description" content="HTTTP协议，原本是明文传输，很容易受到中间者劫持，窥探，甚至篡改网页。中间者往往存在用户与真实服务之间的网络节点，例如 WIFI 热点，路由器，防火墙，反向代理，缓存服务器等。 HTTPS 协议提供了三个强大的功能来对抗上述的劫持行为：    内容加密。浏览器到百度服务器的内容都是以加密形式传输，中间者无法直接查看原始内容。  身份认证。保证用户访问的是百度服务，即使被 DNS 劫持到了第三方">
+<meta name="twitter:description" content="HTTTP协议，原本是明文传输，很容易受到中间者劫持，窥探，甚至篡改网页。中间者往往存在用户与真实服务之间的网络节点，例如 WIFI 热点，路由器，防火墙，反向代理，缓存服务器等。 HTTPS 协议提供了三个强大的功能来对抗上述的劫持行为：    内容加密。浏览器到百度服务器的内容都是以加密形式传输，中间者无法直接查看原始内容。 身份认证。保证用户访问的是正常服务，即使被 DNS 劫持到了第三方站">
 <meta name="twitter:image" content="http://1270.github.io/2018/07/08/https-use-2/1531068776567.jpg">
   
     <link rel="alternative" href="/atom.xml" title="1270" type="application/atom+xml">
@@ -196,14 +196,11 @@ var _hmt = _hmt || [];
         <p>HTTTP协议，原本是明文传输，很容易受到中间者劫持，窥探，甚至篡改网页。中间者往往存在用户与真实服务之间的网络节点，例如 WIFI 热点，路由器，防火墙，反向代理，缓存服务器等。</p>
 <p>HTTPS 协议提供了三个强大的功能来对抗上述的劫持行为：  </p>
 <ul>
-<li><p>内容加密。浏览器到百度服务器的内容都是以加密形式传输，中间者无法直接查看原始内容。</p>
-</li>
-<li><p>身份认证。保证用户访问的是百度服务，即使被 DNS 劫持到了第三方站点，也会提醒用户没有访问百度服务，有可能被劫持</p>
-</li>
-<li><p>数据完整性。防止内容被第三方冒充或者篡改。</p>
-</li>
+<li>内容加密。浏览器到百度服务器的内容都是以加密形式传输，中间者无法直接查看原始内容。</li>
+<li>身份认证。保证用户访问的是正常服务，即使被 DNS 劫持到了第三方站点，也会提醒用户没有访问正常服务，有可能被劫持</li>
+<li>数据完整性。防止内容被第三方冒充或者篡改。</li>
 </ul>
-<h2 id="1-HTTPS-原理介绍"><a href="#1-HTTPS-原理介绍" class="headerlink" title="1. HTTPS 原理介绍"></a>1. HTTPS 原理介绍</h2><h3 id="1-1-内容加密"><a href="#1-1-内容加密" class="headerlink" title="1.1 内容加密"></a>1.1 内容加密</h3><p>加密算法一般分为两种，对称加密和非对称加密。所谓对称加密（也叫密钥加密）就是指加密和解密使用的是相同的密钥。而非对称加密（也叫公钥加密）就是指加密和解密使用了不同的密钥。 </p>
+<h2 id="1-HTTPS-原理介绍"><a href="#1-HTTPS-原理介绍" class="headerlink" title="1. HTTPS 原理介绍"></a>1. HTTPS 原理介绍</h2><h3 id="1-1-内容加密"><a href="#1-1-内容加密" class="headerlink" title="1.1 内容加密"></a>1.1 内容加密</h3><p>加密算法一般分为两种，对称加密和非对称加密。所谓对称加密（也叫密钥加密）就是指加密和解密使用的是相同的密钥。而非对称加密（也叫公钥加密）就是指加密和解密使用了不同的密钥。<br><a id="more"></a> </p>
 <h4 id="1-1-1-非对称加密"><a href="#1-1-1-非对称加密" class="headerlink" title="1.1.1 非对称加密"></a>1.1.1 非对称加密</h4><p>在非对称密钥交换算法出现以前，对称加密最大的问题就是不知道如何安全生成和保管密钥。非对称密钥交换过程主要就是为了解决这个问题，使得对称密钥的生成和使用更加安全。 </p>
 <p>密钥交换算法本身非常复杂，密钥交换过程涉及到随机数生成，模指数运算，空白补齐，加密，签名等操作。 </p>
 <h4 id="1-1-2-常见的密钥交换算法有-RSA，ECDHE，DH，DHE-等算法："><a href="#1-1-2-常见的密钥交换算法有-RSA，ECDHE，DH，DHE-等算法：" class="headerlink" title="1.1.2 常见的密钥交换算法有 RSA，ECDHE，DH，DHE 等算法："></a>1.1.2 常见的密钥交换算法有 RSA，ECDHE，DH，DHE 等算法：</h4><ul>
