@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="1270">
 <meta property="og:description" content="0.本文前提条件 若是所有的资源加载都站内访问，那么 https 实践就比较相对容易。 本文讨论的是大型应用，涉及多资源，跨第三方的一些实践总结整理  1.上 https 的必要性上 https 的目的，还是保证传输内容的安全性。要是只是主域名上了 https，是否就万事大吉了呢？但是主域名加载的资源，比如 js、css、图片没有上 HTTPS ，会怎么样？从效果上说，你的 js，css，图片等">
 <meta property="og:image" content="http://1270.github.io/2018/07/08/https-use-1/1531021323736.jpg">
-<meta property="og:updated_time" content="2018-07-08T08:34:50.136Z">
+<meta property="og:updated_time" content="2018-07-08T08:54:34.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大型应用https的实践(一)">
 <meta name="twitter:description" content="0.本文前提条件 若是所有的资源加载都站内访问，那么 https 实践就比较相对容易。 本文讨论的是大型应用，涉及多资源，跨第三方的一些实践总结整理  1.上 https 的必要性上 https 的目的，还是保证传输内容的安全性。要是只是主域名上了 https，是否就万事大吉了呢？但是主域名加载的资源，比如 js、css、图片没有上 HTTPS ，会怎么样？从效果上说，你的 js，css，图片等">
@@ -193,7 +193,7 @@ var _hmt = _hmt || [];
 <p>很多用户看见这个链接会习惯性的点“是”，这样非 HTTPS 的资源就被禁止加载了。非 IE 的浏览器很多也会阻止加载一些危害程度较高的非 HTTPS 资源（例如 js）。<br>我们发现移动端浏览器的限制目前会略松一些。</p>
 <p>所以这里要是没做好，很多情况连网站的基本功能都没法正常使用。</p>
 <h2 id="2-https-的升级"><a href="#2-https-的升级" class="headerlink" title="2.https 的升级"></a>2.https 的升级</h2><h3 id="2-1、个人小站点"><a href="#2-1、个人小站点" class="headerlink" title="2.1、个人小站点"></a>2.1、个人小站点</h3><p>只要能买到、或使用有限期的免费的域名证书文件，只需要把主域名替换为 HTTPS 接入就可以了。<br>然后将所有的静态资源或者请求，从<a href="http://换成" target="_blank" rel="noopener">http://换成</a> //即可。</p>
-<h3 id="2-2、中级的站点"><a href="#2-2、中级的站点" class="headerlink" title="2.2、中级的站点"></a>2.2、中级的站点</h3><p>需要 cdn 或对应的服务供应商都切换到 https，大部分的 cdn 供应商 都是支持 http 与 https 两种，如网宿，七牛，aws 等等。</p>
+<h3 id="2-2、中级的站点"><a href="#2-2、中级的站点" class="headerlink" title="2.2、中级的站点"></a>2.2、中级的站点</h3><p>需要 cdn 或对应的服务供应商都切换到 https，大部分的 cdn 供应商 都是支持 http 与 https 两种，如网宿，七牛，aws 等等。<br><a id="more"></a> </p>
 <h4 id="2-2-1、CDN-使用-HTTPS-常见的方案有："><a href="#2-2-1、CDN-使用-HTTPS-常见的方案有：" class="headerlink" title="2.2.1、CDN 使用 HTTPS 常见的方案有："></a>2.2.1、CDN 使用 HTTPS 常见的方案有：</h4><ol>
 <li>网站主提供私钥给 cdn，回源使用 HTTP。</li>
 <li>cdn 使用公共域名，公共的证书，这样资源的域名就不能自定义了。回源使用 HTTP.</li>
