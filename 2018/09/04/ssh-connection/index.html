@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://1270.github.io/2018/09/04/ssh-connection/1536048833016.jpg">
 <meta property="og:image" content="http://1270.github.io/2018/09/04/ssh-connection/1536049158327.jpg">
 <meta property="og:image" content="http://1270.github.io/2018/09/04/ssh-connection/1536050477200.jpg">
-<meta property="og:updated_time" content="2018-09-04T16:02:34.017Z">
+<meta property="og:updated_time" content="2018-09-04T16:06:21.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设置使用SSH访问服务器">
 <meta name="twitter:description" content="0x01. 本文前提条件基于前文，申请到开通服务器控制台，新建ubuntu 16.04镜像之后，就可以开始开启ssh登陆。 而google cloud已经提供网页版本终端  然个人使用习惯，还是习惯用终端或ssh工具连接访问，例如mac下个人使用secureCRT或者mac terminal下ssh访问。 那么就设置ssh链接访问服务器。 0x02. SSH Key的生成和使用首先，这里是mac">
@@ -205,8 +205,7 @@ var _hmt = _hmt || [];
 </pre>
 
 <p><img src="/2018/09/04/ssh-connection/1536049158327.jpg" alt="ssh-keygen -t rsa"> </p>
-<p>Note: -t 的意思是选择kye的type。分别有 RSA 和 DSA 两种。具体请自行百度<br>要是一路回车，并无更改文件名的话<br>就会在~/.ssh下生成对应文件，公钥文件id_rsa.pub与私钥文件id_rsa文件。</p>
-<p>然后，需要上传公钥文件id_rsa.pub到服务器~/.ssh/下（google cloud的话，可以通过页面server console窗口右上角的上传功能），并且服务器终端~/.ssh下执行</p>
+<p>Note: -t 的意思是选择kye的type。分别有 RSA 和 DSA 两种。具体请自行百度<br>要是一路回车，并无更改文件名的话<br>就会在~/.ssh下生成对应文件，公钥文件id_rsa.pub与私钥文件id_rsa文件。<br><a id="more"></a><br>然后，需要上传公钥文件id_rsa.pub到服务器~/.ssh/下（google cloud的话，可以通过页面server console窗口右上角的上传功能），并且服务器终端~/.ssh下执行</p>
 <pre>
 <code>cat id_dsa.pub >> ~/.ssh/authorized_keys</code>
 </pre>
@@ -484,11 +483,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">原理</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+                <a href="javascript:void(0)" class="js-tag color3">原理</a>
               </li>
             
             <div class="clearfix"></div>
