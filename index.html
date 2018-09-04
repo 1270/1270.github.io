@@ -191,7 +191,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="0x01-本文前提条件"><a href="#0x01-本文前提条件" class="headerlink" title="0x01. 本文前提条件"></a>0x01. 本文前提条件</h2><p>基于前文，申请到开通服务器控制台，新建ubuntu 16.04镜像之后，就可以开始开启ssh登陆。</p>
+        <h2 id="0x01-本文前提条件"><a href="#0x01-本文前提条件" class="headerlink" title="0x01. 本文前提条件"></a>0x01. 本文前提条件</h2><p>基于<a href="https://1270.github.io/2017/12/24/google-cloud-server/#more">前文</a>，申请到开通服务器控制台，新建ubuntu 16.04镜像之后，就可以开始开启ssh登陆。</p>
 <p>而google cloud已经提供网页版本终端<br><img src="/2018/09/04/ssh-connection/1536048833016.jpg" alt="google cloud web console"> </p>
 <p>然个人使用习惯，还是习惯用终端或ssh工具连接访问，例如mac下个人使用secureCRT或者mac terminal下ssh访问。</p>
 <p>那么就设置ssh链接访问服务器。</p>
@@ -200,7 +200,7 @@ var _hmt = _hmt || [];
 <code>ssh-keygen -t rsa</code>
 </pre>
 
-<p><img src="/2018/09/04/ssh-connection/1536049158327.jpg" alt="ssh ssh-keygen"> </p>
+<p><img src="/2018/09/04/ssh-connection/1536049158327.jpg" alt="ssh-keygen -t rsa"> </p>
 <p>Note: -t 的意思是选择kye的type。分别有 RSA 和 DSA 两种。具体请自行百度<br>要是一路回车，并无更改文件名的话<br>就会在~/.ssh下生成对应文件，公钥文件id_rsa.pub与私钥文件id_rsa文件。</p>
 <p>然后，需要上传公钥文件id_rsa.pub到服务器~/.ssh/下（google cloud的话，可以通过页面server console窗口右上角的上传功能），并且服务器终端~/.ssh下执行</p>
 <pre>
