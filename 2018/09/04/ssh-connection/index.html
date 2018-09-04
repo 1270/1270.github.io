@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://1270.github.io">
-  <title>Archives: 2018 | 1270</title>
+  <title>设置使用SSH访问服务器 | 1270</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="blogs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="1270">
-<meta property="og:url" content="http://1270.github.io/archives/2018/index.html">
+  <meta name="description" content="0x01. 本文前提条件基于前文，申请到开通服务器控制台，新建ubuntu 16.04镜像之后，就可以开始开启ssh登陆。 而google cloud已经提供网页版本终端  然个人使用习惯，还是习惯用终端或ssh工具连接访问，例如mac下个人使用secureCRT或者mac terminal下ssh访问。 那么就设置ssh链接访问服务器。 0x02. SSH Key的生成和使用首先，这里是mac">
+<meta name="keywords" content="Google Cloud,ssh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设置使用SSH访问服务器">
+<meta property="og:url" content="http://1270.github.io/2018/09/04/ssh-connection/index.html">
 <meta property="og:site_name" content="1270">
-<meta property="og:description" content="blogs">
+<meta property="og:description" content="0x01. 本文前提条件基于前文，申请到开通服务器控制台，新建ubuntu 16.04镜像之后，就可以开始开启ssh登陆。 而google cloud已经提供网页版本终端  然个人使用习惯，还是习惯用终端或ssh工具连接访问，例如mac下个人使用secureCRT或者mac terminal下ssh访问。 那么就设置ssh链接访问服务器。 0x02. SSH Key的生成和使用首先，这里是mac">
+<meta property="og:image" content="http://1270.github.io/2018/09/04/ssh-connection/1536048833016.jpg">
+<meta property="og:image" content="http://1270.github.io/2018/09/04/ssh-connection/1536049158327.jpg">
+<meta property="og:image" content="http://1270.github.io/2018/09/04/ssh-connection/1536050477200.jpg">
+<meta property="og:updated_time" content="2018-09-04T08:45:57.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1270">
-<meta name="twitter:description" content="blogs">
+<meta name="twitter:title" content="设置使用SSH访问服务器">
+<meta name="twitter:description" content="0x01. 本文前提条件基于前文，申请到开通服务器控制台，新建ubuntu 16.04镜像之后，就可以开始开启ssh登陆。 而google cloud已经提供网页版本终端  然个人使用习惯，还是习惯用终端或ssh工具连接访问，例如mac下个人使用secureCRT或者mac terminal下ssh访问。 那么就设置ssh链接访问服务器。 0x02. SSH Key的生成和使用首先，这里是mac">
+<meta name="twitter:image" content="http://1270.github.io/2018/09/04/ssh-connection/1536048833016.jpg">
   
     <link rel="alternative" href="/atom.xml" title="1270" type="application/atom+xml">
   
@@ -169,36 +175,92 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ssh-connection" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/04/ssh-connection/" class="archive-article-date">
-  	<time datetime="2018-09-04T08:10:33.008Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/04/ssh-connection/">设置使用SSH访问服务器</a>
+    <h1 class="article-title" itemprop="name">
+      设置使用SSH访问服务器
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/09/04/ssh-connection/" class="archive-article-date">
+  	<time datetime="2018-09-04T08:10:33.008Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0x01-本文前提条件"><a href="#0x01-本文前提条件" class="headerlink" title="0x01. 本文前提条件"></a>0x01. 本文前提条件</h2><p>基于前文，申请到开通服务器控制台，新建ubuntu 16.04镜像之后，就可以开始开启ssh登陆。</p>
+<p>而google cloud已经提供网页版本终端<br><img src="/2018/09/04/ssh-connection/1536048833016.jpg" alt="google cloud web console"> </p>
+<p>然个人使用习惯，还是习惯用终端或ssh工具连接访问，例如mac下个人使用secureCRT或者mac terminal下ssh访问。</p>
+<p>那么就设置ssh链接访问服务器。</p>
+<h2 id="0x02-SSH-Key的生成和使用"><a href="#0x02-SSH-Key的生成和使用" class="headerlink" title="0x02. SSH Key的生成和使用"></a>0x02. SSH Key的生成和使用</h2><p>首先，这里是mac下：</p>
+<pre>
+<code>ssh-keygen -t rsa</code>
+</pre>
+
+<p><img src="/2018/09/04/ssh-connection/1536049158327.jpg" alt="ssh ssh-keygen"> </p>
+<p>Note: -t 的意思是选择kye的type。分别有 RSA 和 DSA 两种。具体请自行百度<br>要是一路回车，并无更改文件名的话<br>就会在~/.ssh下生成对应文件，公钥文件id_rsa.pub与私钥文件id_rsa文件。</p>
+<p>然后，需要上传公钥文件id_rsa.pub到服务器~/.ssh/下（google cloud的话，可以通过页面server console窗口右上角的上传功能），并且服务器终端~/.ssh下执行</p>
+<pre>
+<code>cat id_dsa.pub >> ~/.ssh/authorized_keys</code>
+</pre>
+
+<p>更新权限(很重要)</p>
+<pre>
+<code> chmod 0600 * </code>
+</pre>
+
+<h2 id="0x03-测试连接"><a href="#0x03-测试连接" class="headerlink" title="0x03. 测试连接"></a>0x03. 测试连接</h2><p>本地测试：ssh -i id_dsa 你的google clound账户@公网ip</p>
+<pre>
+<code> ssh -i id_dsa 你的google clound账户@公网ip </code>
+</pre>
+
+<p>出现登陆提示，就登陆成功。<br><img src="/2018/09/04/ssh-connection/1536050477200.jpg" alt="ssh login success"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/imgs/taobaodashang.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/imgs/weixindashang.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,141 +276,116 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://1270.github.io/2018/09/04/ssh-connection/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/09/https-use-3/" class="archive-article-date">
-  	<time datetime="2018-07-09T05:21:48.680Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/09/https-use-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大型应用https的实践(三) - https耗时</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/09/https-use-3/">大型应用https的实践(三) - https耗时</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/08/https-use-2/" class="archive-article-date">
-  	<time datetime="2018-07-08T13:22:20.108Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/https-use-2/">大型应用https的实践(二) -- https原理</a>
-    </h1>
+  <div id="SOHUCS" sid="ssh-connection" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytHHW5tS",
+        conf: "prod_7ee44fa27e9fe033e907af134f303173"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/08/https-use-1/" class="archive-article-date">
-  	<time datetime="2018-07-08T03:33:00.538Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/https-use-1/">大型应用https的实践(一) ——— http升级https</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -372,8 +409,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
